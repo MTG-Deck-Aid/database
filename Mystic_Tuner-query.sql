@@ -3,10 +3,10 @@ CREATE DATABASE Mystic_Tuner_Application;
 
 DROP TABLE IF EXISTS Deck;
 CREATE TABLE Deck (
-	DID SERIAL PRIMARY KEY,
-	userId INT NOT NULL,
-	deckType VARCHAR(100) NOT NULL, 
-	deckName VARCHAR(100) NOT NULL
+	userid INT NOT NULL,
+	decktype VARCHAR(100) NOT NULL, 
+	deckname VARCHAR(100) NOT NULL,
+	DID SERIAL PRIMARY KEY
 );
 
 
@@ -19,15 +19,15 @@ VALUES
 DROP TABLE IF EXISTS Card;
 CREATE TABLE Card (
 	id SERIAL PRIMARY KEY,
-	deckId INT NOT NULL,
-	name VARCHAR(200) NOT NULL,
-	sideBoard BOOLEAN,
-	cardType VARCHAR(20),
-	count INT,
-	FOREIGN KEY (deckId) REFERENCES Deck(DID) ON DELETE CASCADE
+	deckid INT NOT NULL,
+	cardname VARCHAR(200) NOT NULL,
+	sideboard BOOLEAN DEFAULT FALSE NOT NULL,
+	cardtype VARCHAR(20),
+	count INT DEFAULT 1 NOT NULL,
+	FOREIGN KEY (deckid) REFERENCES Deck(DID) ON DELETE CASCADE
 );
 
-INSERT INTO Card(deckId, name, sideBoard, cardType) VALUES
+INSERT INTO Card(deckid, cardname, sideboard, cardtype, count) VALUES
 --deck 1
 (1, 'Akroma, Vision of Ixidor', FALSE, 'creature', 1),
 (1, 'Ishai, Ojutai Dragonspeaker', FALSE, 'creature', 1),
