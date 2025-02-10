@@ -15,7 +15,7 @@ VALUES
 (1, "Commander", "Gluntch the Kindest Jellyfish"),
 (1, "Commander", "Nuclear Bird"),
 (1, "Standard", "Gruul deck"),
-(2, "Commander", "Taii Wakeen hits a triple collateral"),
+(2, "Commander", "Taii Wakeen hits a triple collateral");
 DROP TABLE IF EXISTS Card;
 CREATE TABLE Card (
 	id SERIAL PRIMARY KEY,
@@ -27,9 +27,7 @@ CREATE TABLE Card (
 	FOREIGN KEY (deckId) REFERENCES Deck(DID) ON DELETE CASCADE
 );
 
-INSERT INTO Card(deckId, name, sideBoard, cardType)
-VALUES
-INSERT INTO Card (deckId, name, sideBoard, cardType, count) VALUES
+INSERT INTO Card(deckId, name, sideBoard, cardType) VALUES
 --deck 1
 (1, 'Akroma, Vision of Ixidor', FALSE, 'creature', 1),
 (1, 'Ishai, Ojutai Dragonspeaker', FALSE, 'creature', 1),
@@ -99,7 +97,7 @@ INSERT INTO Card (deckId, name, sideBoard, cardType, count) VALUES
 (1, 'Warden of Evos Isle', FALSE, 'creature', 1),
 (1, 'Windreader Sphinx', FALSE, 'creature', 1),
 (1, 'Witness Protection', FALSE, 'enchantment', 1),
-(1, 'Youthful Valkyrie', FALSE, 'creature', 1);
+(1, 'Youthful Valkyrie', FALSE, 'creature', 1),
 (1, 'Plains', FALSE, 'land', 16),
 (1, 'Island', FALSE, 'land', 15),
 -- deck 2
@@ -215,25 +213,25 @@ INSERT INTO Card (deckId, name, sideBoard, cardType, count) VALUES
 (2, 'Vorinclex, Monstrous Raider', TRUE, 'creature', 1),
 (2, 'Weathered Runestone', TRUE, 'artifact', 1),
 (2, 'Windborn Muse', TRUE, 'creature', 1),
-(2, 'Yotian Dissident', TRUE, 'creature', 1);
+(2, 'Yotian Dissident', TRUE, 'creature', 1),
 --deck 3
 (3, 'Forest', FALSE, 'land', 10),
 (3, 'Mountain', FALSE, 'land', 10),
 (3, 'Rockfall Vale', FALSE, 'land', 4), 
-(3, 'Kumano Faces Kakkazan', FALSE, 'creature', 4),
+(3, 'Kumano Faces Kakkazan', FALSE, 'Enchantment', 4),
 (3, 'Phoenix Chick', FALSE, 'creature', 4),
 (3, 'Quirion Beastcaller', FALSE, 'creature', 3),
 (3, 'Bloodthirsty Adversary', FALSE, 'creature', 2),
 (3, 'Halana and Alena, Partners', FALSE, 'creature', 2),
 (3, 'Tovolar, Dire Overlord', FALSE, 'creature', 2),
 (3, 'Riveteers Requisitioner', FALSE, 'creature', 2),
-(3, 'Glory Dominus', FALSE, 'creature', 2),
+(3, 'Mondrak, Glory Dominus', FALSE, 'creature', 2),
 (3, 'Gruul Spellbreaker', FALSE, 'creature', 1),
 (3, 'Lightning Strike', FALSE, 'instant', 4),
 (3, 'Play with Fire', FALSE, 'instant', 4),
 (3, 'Strangle', FALSE, 'sorcery', 2),
 (3, 'Blizzard Brawl', FALSE, 'sorcery', 2),
-(3, 'Kami’s Flare', FALSE, 'enchantment', 2),
+(3, 'Kami’s Flare', FALSE, 'instant', 2),
 (3, 'Fable of the Mirror-Breaker', FALSE, 'enchantment', 2),
 (3, 'Reckoner Bankbuster', FALSE, 'artifact', 2),
 --deck 4
