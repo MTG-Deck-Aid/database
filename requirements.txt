@@ -1,10 +1,3 @@
 dependencies:
 pip install psycopg2
 
-connection details:
-host: #Will depend on deployment
-database: "Mystic_Tuner_Application"
-name: MT_admin
-password: admin
-port: 5433
-
