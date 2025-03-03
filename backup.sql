@@ -114,6 +114,13 @@ ALTER TABLE ONLY public."Card" ALTER COLUMN id SET DEFAULT nextval('public."Card
 
 
 --
+-- Name: Deck DID; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Deck" ALTER COLUMN "DID" SET DEFAULT nextval('public."Deck_DID_seq"'::regclass);
+
+
+--
 -- Data for Name: Card; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -422,14 +429,14 @@ COPY public."Deck" ("userId", "deckType", "deckName", "DID") FROM stdin;
 -- Name: Card_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Card_id_seq"', 554, true);
+SELECT pg_catalog.setval('public."Card_id_seq"', 581, true);
 
 
 --
 -- Name: Deck_DID_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Deck_DID_seq"', 5, true);
+SELECT pg_catalog.setval('public."Deck_DID_seq"', 10, true);
 
 
 --
