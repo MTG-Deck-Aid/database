@@ -38,17 +38,6 @@ CREATE TABLE public."Card" (
 ALTER TABLE public."Card" OWNER TO postgres;
 
 --
--- Name: CardNames; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."CardNames" (
-    name character varying(200) NOT NULL
-);
-
-
-ALTER TABLE public."CardNames" OWNER TO postgres;
-
---
 -- Name: Card_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -406,14 +395,6 @@ COPY public."Card" (id, deckid, cardname, sideboard, cardtype, count) FROM stdin
 
 
 --
--- Data for Name: CardNames; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."CardNames" (name) FROM stdin;
-\.
-
-
---
 -- Data for Name: Deck; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -429,22 +410,14 @@ COPY public."Deck" ("userId", "deckType", "deckName", "DID") FROM stdin;
 -- Name: Card_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Card_id_seq"', 581, true);
+SELECT pg_catalog.setval('public."Card_id_seq"', 5326, true);
 
 
 --
 -- Name: Deck_DID_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Deck_DID_seq"', 10, true);
-
-
---
--- Name: CardNames CardNames_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."CardNames"
-    ADD CONSTRAINT "CardNames_pkey" PRIMARY KEY (name);
+SELECT pg_catalog.setval('public."Deck_DID_seq"', 1292, true);
 
 
 --
@@ -476,13 +449,6 @@ ALTER TABLE ONLY public."Card"
 --
 
 GRANT SELECT,INSERT,UPDATE ON TABLE public."Card" TO "MT_Admin";
-
-
---
--- Name: TABLE "CardNames"; Type: ACL; Schema: public; Owner: postgres
---
-
-GRANT SELECT,INSERT,UPDATE ON TABLE public."CardNames" TO "MT_Admin";
 
 
 --
