@@ -38,17 +38,6 @@ CREATE TABLE public."Card" (
 ALTER TABLE public."Card" OWNER TO postgres;
 
 --
--- Name: CardNames; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."CardNames" (
-    name character varying(200) NOT NULL
-);
-
-
-ALTER TABLE public."CardNames" OWNER TO postgres;
-
---
 -- Name: Card_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -78,7 +67,8 @@ CREATE TABLE public."Deck" (
     "userId" integer NOT NULL,
     "deckType" character varying(100) NOT NULL,
     "deckName" character varying(100) NOT NULL,
-    "DID" integer NOT NULL
+    "DID" integer NOT NULL,
+    commander character varying(100)
 );
 
 
@@ -111,6 +101,13 @@ ALTER SEQUENCE public."Deck_DID_seq" OWNED BY public."Deck"."DID";
 --
 
 ALTER TABLE ONLY public."Card" ALTER COLUMN id SET DEFAULT nextval('public."Card_id_seq"'::regclass);
+
+
+--
+-- Name: Deck DID; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Deck" ALTER COLUMN "DID" SET DEFAULT nextval('public."Deck_DID_seq"'::regclass);
 
 
 --
@@ -399,22 +396,14 @@ COPY public."Card" (id, deckid, cardname, sideboard, cardtype, count) FROM stdin
 
 
 --
--- Data for Name: CardNames; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."CardNames" (name) FROM stdin;
-\.
-
-
---
 -- Data for Name: Deck; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public."Deck" ("userId", "deckType", "deckName", "DID") FROM stdin;
-1	Commander	Gluntch the Kindest Jellyfish	1
-1	Commander	Nuclear Bird	2
-1	Standard	Gruul deck	3
-2	Commander	Taii Wakeen hits a triple collateral	4
+COPY public."Deck" ("userId", "deckType", "deckName", "DID", commander) FROM stdin;
+1	Commander	Gluntch the Kindest Jellyfish	1	Gluntch, the Bestower
+1	Commander	Nuclear Bird	2	Ishai, Ojutai Dragonspeaker
+2	Commander	Taii Wakeen hits a triple collateral	4	Taii Wakeen, Perfect Shot
+1	Standard	Gruul deck	3	\N
 \.
 
 
@@ -422,22 +411,14 @@ COPY public."Deck" ("userId", "deckType", "deckName", "DID") FROM stdin;
 -- Name: Card_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Card_id_seq"', 554, true);
+SELECT pg_catalog.setval('public."Card_id_seq"', 8763, true);
 
 
 --
 -- Name: Deck_DID_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Deck_DID_seq"', 5, true);
-
-
---
--- Name: CardNames CardNames_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."CardNames"
-    ADD CONSTRAINT "CardNames_pkey" PRIMARY KEY (name);
+SELECT pg_catalog.setval('public."Deck_DID_seq"', 3182, true);
 
 
 --
@@ -469,13 +450,6 @@ ALTER TABLE ONLY public."Card"
 --
 
 GRANT SELECT,INSERT,UPDATE ON TABLE public."Card" TO "MT_Admin";
-
-
---
--- Name: TABLE "CardNames"; Type: ACL; Schema: public; Owner: postgres
---
-
-GRANT SELECT,INSERT,UPDATE ON TABLE public."CardNames" TO "MT_Admin";
 
 
 --
