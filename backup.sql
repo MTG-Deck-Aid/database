@@ -29,7 +29,7 @@ CREATE TABLE public."Card" (
     id integer NOT NULL,
     deckid integer NOT NULL,
     cardname character varying(200) NOT NULL,
-    sideboard boolean DEFAULT false NOT NULL,
+    sideboard boolean DEFAULT false,
     cardtype character varying(20),
     count integer DEFAULT 1 NOT NULL
 );
@@ -64,11 +64,11 @@ ALTER SEQUENCE public."Card_id_seq" OWNED BY public."Card".id;
 --
 
 CREATE TABLE public."Deck" (
-    "userId" integer NOT NULL,
     "deckType" character varying(100) NOT NULL,
     "deckName" character varying(100) NOT NULL,
     "DID" integer NOT NULL,
-    commander character varying(100)
+    commander character varying(100),
+    "userId" character varying NOT NULL
 );
 
 
@@ -231,6 +231,7 @@ COPY public."Card" (id, deckid, cardname, sideboard, cardtype, count) FROM stdin
 391	2	Overrun	f	sorcery	1
 392	2	Ozolith, the Shattered Spire	f	artifact	1
 393	2	Plains	f	land	16
+13480	5454	Marchesa, the Black Rose	f	\N	1
 394	2	Preposterous Proportions	f	enchantment	1
 395	2	Reliquary Tower	f	land	1
 396	2	Renata, Called to the Hunt	f	creature	1
@@ -392,6 +393,95 @@ COPY public."Card" (id, deckid, cardname, sideboard, cardtype, count) FROM stdin
 552	4	Twin Bolt	f	instant	1
 553	4	Untimely Malfunction	f	sorcery	1
 554	4	Prisoner's Dilemma	t	instant	1
+13481	5454	Academy Ruins	f	\N	1
+13482	5454	Aether Channeler	f	\N	1
+13483	5454	Altar of Dementia	f	\N	1
+13484	5454	An Offer You Can't Refuse	f	\N	1
+13485	5454	Arcane Signet	f	\N	1
+13486	5454	Ashnod's Altar	f	\N	1
+13487	5454	Atsushi, the Blazing Sky	f	\N	1
+13488	5454	Baleful Strix	f	\N	1
+13489	5454	Bedevil	f	\N	1
+13490	5454	Blackcleave Cliffs	f	\N	1
+13491	5454	Blasphemous Act	f	\N	1
+13492	5454	Blood Artist	f	\N	1
+13493	5454	Body Launderer	f	\N	1
+13494	5454	Carrion Feeder	f	\N	1
+13495	5454	Cavern of Souls	f	\N	1
+13496	5454	Chaos Warp	f	\N	1
+13497	5454	Command Tower	f	\N	1
+13498	5454	Counterspell	f	\N	1
+13499	5454	Crumbling Necropolis	f	\N	1
+13500	5454	Cytoplast Manipulator	f	\N	1
+13501	5454	Dauthi Voidwalker	f	\N	1
+13502	5454	Demonic Tutor	f	\N	1
+13503	5454	Diabolic Intent	f	\N	1
+13504	5454	Dictate of Erebos	f	\N	1
+13505	5454	Dimir Signet	f	\N	1
+13506	5454	Exotic Orchard	f	\N	1
+13507	5454	Fabled Passage	f	\N	1
+13508	5454	Feed the Swarm	f	\N	1
+13509	5454	Flayer of the Hatebound	f	\N	1
+13510	5454	Glen Elendra Archmage	f	\N	1
+13511	5454	Goblin Bombardment	f	\N	1
+13512	5454	Graven Cairns	f	\N	1
+13513	5454	Grim Haruspex	f	\N	1
+13514	5454	Guildmages' Forum	f	\N	1
+13515	5454	High Market	f	\N	1
+13516	5454	Imperial Recruiter	f	\N	1
+13517	5454	Iron Apprentice	f	\N	1
+13518	5454	Island	f	\N	4
+13519	5454	Izzet Signet	f	\N	1
+13520	5454	Juri, Master of the Revue	f	\N	1
+13521	5454	Lim-Dûl's Vault	f	\N	1
+13522	5454	Mark of Mutiny	f	\N	1
+13523	5454	Metallic Mimic	f	\N	1
+13524	5454	Midnight Reaper	f	\N	1
+13525	5454	Mikaeus, the Unhallowed	f	\N	1
+13526	5454	Mind Stone	f	\N	1
+13527	5454	Mountain	f	\N	4
+13528	5454	Murderous Redcap	f	\N	1
+13529	5454	Myr Scrapling	f	\N	1
+13530	5454	Myriad Landscape	f	\N	1
+13531	5454	Narset, Parter of Veils	f	\N	1
+13532	5454	Negate	f	\N	1
+13533	5454	Opal Palace	f	\N	1
+13534	5454	Path of Ancestry	f	\N	1
+13535	5454	Propaganda	f	\N	1
+13536	5454	Puppeteer Clique	f	\N	1
+13537	5454	Rakdos Charm	f	\N	1
+13538	5454	Rakdos Signet	f	\N	1
+13539	5454	River Kelpie	f	\N	1
+13540	5454	Sage of Fables	f	\N	1
+13541	5454	Shivan Reef	f	\N	1
+13542	5454	Sidisi, Undead Vizier	f	\N	1
+13543	5454	Skullclamp	f	\N	1
+13544	5454	Smoldering Marsh	f	\N	1
+13545	5454	Sneak Attack	f	\N	1
+13546	5454	Sol Ring	f	\N	1
+13547	5454	Solemn Simulacrum	f	\N	1
+13548	5454	Spark Double	f	\N	1
+13549	5454	Stormcarved Coast	f	\N	1
+13550	5454	Sulfurous Springs	f	\N	1
+13551	5454	Swamp	f	\N	5
+13552	5454	Talisman of Creativity	f	\N	1
+13553	5454	Talisman of Dominance	f	\N	1
+13554	5454	Talisman of Indulgence	f	\N	1
+13555	5454	Temple of Deceit	f	\N	1
+13556	5454	Temple of Epiphany	f	\N	1
+13557	5454	Temple of Malice	f	\N	1
+13558	5454	The Ozolith	f	\N	1
+13559	5454	Thran Vigil	f	\N	1
+13560	5454	Thundering Raiju	f	\N	1
+13561	5454	Tyrite Sanctum	f	\N	1
+13562	5454	Uncivil Unrest	f	\N	1
+13563	5454	Underground River	f	\N	1
+13564	5454	Unspeakable Symbol	f	\N	1
+13565	5454	Vampiric Tutor	f	\N	1
+13566	5454	Vigean Graftmage	f	\N	1
+13567	5454	Viscera Seer	f	\N	1
+13568	5454	Withering Torment	f	\N	1
+13569	5454	Wurmcoil Engine	f	\N	1
 \.
 
 
@@ -399,11 +489,12 @@ COPY public."Card" (id, deckid, cardname, sideboard, cardtype, count) FROM stdin
 -- Data for Name: Deck; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public."Deck" ("userId", "deckType", "deckName", "DID", commander) FROM stdin;
-1	Commander	Gluntch the Kindest Jellyfish	1	Gluntch, the Bestower
-1	Commander	Nuclear Bird	2	Ishai, Ojutai Dragonspeaker
-2	Commander	Taii Wakeen hits a triple collateral	4	Taii Wakeen, Perfect Shot
-1	Standard	Gruul deck	3	\N
+COPY public."Deck" ("deckType", "deckName", "DID", commander, "userId") FROM stdin;
+Commander	Gluntch the Kindest Jellyfish	1	Gluntch, the Bestower	1
+Commander	Nuclear Bird	2	Ishai, Ojutai Dragonspeaker	1
+Standard	Gruul deck	3	\N	1
+Commander	Taii Wakeen hits a triple collateral	4	Taii Wakeen, Perfect Shot	2
+commander	Test Deck	5454	Marchesa, the Black Rose	100\n
 \.
 
 
@@ -411,14 +502,14 @@ COPY public."Deck" ("userId", "deckType", "deckName", "DID", commander) FROM std
 -- Name: Card_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Card_id_seq"', 8763, true);
+SELECT pg_catalog.setval('public."Card_id_seq"', 14793, true);
 
 
 --
 -- Name: Deck_DID_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Deck_DID_seq"', 3182, true);
+SELECT pg_catalog.setval('public."Deck_DID_seq"', 5958, true);
 
 
 --
