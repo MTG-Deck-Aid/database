@@ -51,7 +51,7 @@ NOTE: rerunning the write command doesn't have any adverse effects from what I s
 
 # to upload users
 example:
-.\psql -U postgres -h localhost -p 5433 -f "C:\Users\marcu\OneDrive\Documents\SENG 401\Project\database\backup.sql"
+.\psql -U postgres -h localhost -p 5433 -f "C:\Users\marcu\OneDrive\Documents\SENG 401\Project\database\roles_backup.sql"
 
 NOTE: you must use a superuser login to make this command.  By default it should be postgres I believe.
 
