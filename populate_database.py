@@ -1,6 +1,9 @@
 import subprocess
 import os
 
+
+# ======================= MEANT FOR LOCAL TESTING, NOT FOR PRODUCTION ============================== #
+
 # Get the original script directory (where backup.sql is located)
 script_dir = os.getcwd()
 backup_path = os.path.join(script_dir, "backup.sql")
